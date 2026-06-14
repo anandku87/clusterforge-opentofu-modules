@@ -49,6 +49,30 @@ variable "deletion_protection" {
   default     = false
 }
 
+variable "enable_argocd" {
+  description = "Enable ArgoCD installation in this blueprint."
+  type        = bool
+  default     = true
+}
+
+variable "enable_istio" {
+  description = "Enable Istio installation in this blueprint."
+  type        = bool
+  default     = true
+}
+
+variable "enable_cert_manager" {
+  description = "Enable Cert Manager installation in this blueprint."
+  type        = bool
+  default     = true
+}
+
+variable "enable_metrics_server" {
+  description = "Enable Metrics Server installation in this blueprint."
+  type        = bool
+  default     = true
+}
+
 variable "vpc_name" {
   description = "VPC name used by the blueprint/network module"
   type        = string

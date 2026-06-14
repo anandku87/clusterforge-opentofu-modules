@@ -1,7 +1,7 @@
 resource "google_container_cluster" "this" {
-  name     = var.cluster_name
-  project  = var.project_id
-  location = var.region
+  name                     = var.cluster_name
+  project                  = var.project_id
+  location                 = var.region
   remove_default_node_pool = true
   initial_node_count       = 1
 
@@ -11,7 +11,7 @@ resource "google_container_cluster" "this" {
   subnetwork = var.subnetwork
 
   ip_allocation_policy {
-    use_ip_aliases                 = true
+    use_ip_aliases                = true
     cluster_secondary_range_name  = var.pods_range_name
     services_secondary_range_name = var.services_range_name
   }
@@ -78,8 +78,8 @@ resource "google_container_node_pool" "primary" {
     ]
 
     shielded_instance_config {
-      enable_secure_boot            = true
-      enable_integrity_monitoring  = true
+      enable_secure_boot          = true
+      enable_integrity_monitoring = true
     }
   }
 }

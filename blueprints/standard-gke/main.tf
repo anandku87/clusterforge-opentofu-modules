@@ -19,7 +19,7 @@ module "gke" {
   cluster_name = var.cluster_name
   region       = var.region
 
-  network = module.network.vpc_name
+  network    = module.network.vpc_name
   subnetwork = module.network.subnet_name
 
   pods_range_name     = module.network.pods_range_name
@@ -50,4 +50,13 @@ module "security" {
     "roles/artifactregistry.reader",
     "roles/secretmanager.secretAccessor",
   ]
+}
+
+module "addons" {
+  source = "../../modules/addons"
+
+  enable_argocd         = var.enable_argocd
+  enable_istio          = var.enable_istio
+  enable_cert_manager   = var.enable_cert_manager
+  enable_metrics_server = var.enable_metrics_server
 }
