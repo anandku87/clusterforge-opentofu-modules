@@ -1,3 +1,7 @@
+# Architecture Diagram
+
+![Landing Zone Architecture](architecture/landing-zone-v2.svg)
+
 # ClusterForge Landing Zone v2
 
 This document defines the enterprise Google Cloud Platform (GCP) landing zone architecture for ClusterForge using a Hub-and-Spoke model. It is written for platform engineering teams and describes the recommended project structure, network design, security posture, and operational strategy for enterprise-scale GKE adoption.

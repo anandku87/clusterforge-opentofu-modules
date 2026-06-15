@@ -40,6 +40,26 @@ ClusterForge is designed around a clean separation of concerns:
 
 This structure enables consistent deployments, easy reuse of modules, and separation between platform engineering authoring and environment-specific operational execution.
 
+## Architecture
+
+### ClusterForge Platform Overview
+
+![ClusterForge Overview](docs/architecture/clusterforge-overview.svg)
+
+High-level view of the ClusterForge platform showing UI, API, OpenTofu, GCP landing zone, GKE clusters, and GitOps deployment flow.
+
+### Landing Zone Architecture
+
+![Landing Zone Architecture](docs/architecture/landing-zone-v2.svg)
+
+Enterprise GCP landing zone using Hub-and-Spoke networking with Shared Services, Dev, Prod, and Sandbox projects.
+
+### Provisioning Flow
+
+![Provisioning Flow](docs/architecture/provisioning-flow.svg)
+
+Shows how ClusterForge provisions infrastructure from UI requests through OpenTofu modules into GKE clusters and deploys applications using ArgoCD.
+
 ## Module Strategy
 
 The module strategy is intentionally modular and extensible:

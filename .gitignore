@@ -1,0 +1,10 @@
+# OpenTofu / Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+*.tfplan
+
+# IDE
+.vscode/
+.idea/
