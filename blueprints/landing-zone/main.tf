@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "google" {
-  project = var.project_id
+  project = var.shared_project_id
   region  = var.region
 }
 
@@ -18,8 +18,11 @@ provider "google" {
 module "landing_zone_network" {
   source = "../../modules/landing-zone-network"
 
-  project_id = var.project_id
-  region     = var.region
+  shared_project_id  = var.shared_project_id
+  dev_project_id     = var.dev_project_id
+  prod_project_id    = var.prod_project_id
+  sandbox_project_id = var.sandbox_project_id
+  region             = var.region
 
   # Hub Configuration
   shared_vpc_name    = var.shared_vpc_name

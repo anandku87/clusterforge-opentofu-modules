@@ -1,7 +1,7 @@
 # Hub VPC
 resource "google_compute_network" "shared_services" {
   name                    = var.shared_vpc_name
-  project                 = var.project_id
+  project                 = var.shared_project_id
   auto_create_subnetworks = false
   routing_mode            = "REGIONAL"
 }
@@ -9,7 +9,7 @@ resource "google_compute_network" "shared_services" {
 # Shared Services Subnet
 resource "google_compute_subnetwork" "shared_services" {
   name          = "${var.shared_vpc_name}-subnet"
-  project       = var.project_id
+  project       = var.shared_project_id
   region        = var.region
   network       = google_compute_network.shared_services.id
   ip_cidr_range = var.shared_subnet_cidr
@@ -26,7 +26,7 @@ resource "google_compute_subnetwork" "shared_services" {
 # Dev VPC (Spoke)
 resource "google_compute_network" "dev" {
   name                    = var.dev_vpc_name
-  project                 = var.project_id
+  project                 = var.dev_project_id
   auto_create_subnetworks = false
   routing_mode            = "REGIONAL"
 }
@@ -34,7 +34,7 @@ resource "google_compute_network" "dev" {
 # Dev Subnet
 resource "google_compute_subnetwork" "dev" {
   name          = "${var.dev_vpc_name}-subnet"
-  project       = var.project_id
+  project       = var.dev_project_id
   region        = var.region
   network       = google_compute_network.dev.id
   ip_cidr_range = var.dev_subnet_cidr
@@ -51,7 +51,7 @@ resource "google_compute_subnetwork" "dev" {
 # Prod VPC (Spoke)
 resource "google_compute_network" "prod" {
   name                    = var.prod_vpc_name
-  project                 = var.project_id
+  project                 = var.prod_project_id
   auto_create_subnetworks = false
   routing_mode            = "REGIONAL"
 }
@@ -59,7 +59,7 @@ resource "google_compute_network" "prod" {
 # Prod Subnet
 resource "google_compute_subnetwork" "prod" {
   name          = "${var.prod_vpc_name}-subnet"
-  project       = var.project_id
+  project       = var.prod_project_id
   region        = var.region
   network       = google_compute_network.prod.id
   ip_cidr_range = var.prod_subnet_cidr
@@ -76,7 +76,7 @@ resource "google_compute_subnetwork" "prod" {
 # Sandbox VPC (Spoke)
 resource "google_compute_network" "sandbox" {
   name                    = var.sandbox_vpc_name
-  project                 = var.project_id
+  project                 = var.sandbox_project_id
   auto_create_subnetworks = false
   routing_mode            = "REGIONAL"
 }
@@ -84,7 +84,7 @@ resource "google_compute_network" "sandbox" {
 # Sandbox Subnet
 resource "google_compute_subnetwork" "sandbox" {
   name          = "${var.sandbox_vpc_name}-subnet"
-  project       = var.project_id
+  project       = var.sandbox_project_id
   region        = var.region
   network       = google_compute_network.sandbox.id
   ip_cidr_range = var.sandbox_subnet_cidr

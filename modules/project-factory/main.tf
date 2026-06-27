@@ -11,11 +11,11 @@ locals {
 
 # Create the GCP project
 resource "google_project" "main" {
-  project_id      = var.project_id
-  name            = var.project_name
-  billing_account = var.billing_account
-  folder_id       = var.folder_id
-  labels          = local.merged_labels
+  project_id          = var.project_id
+  name                = var.project_name
+  billing_account     = var.billing_account
+  folder_id           = var.folder_id
+  labels              = local.merged_labels
   auto_create_network = false
 
   # Prevent accidental destruction
