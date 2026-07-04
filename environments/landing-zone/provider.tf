@@ -8,3 +8,8 @@ terraform {
     }
   }
 }
+
+provider "google" {
+  project = "clusterforge-shared"
+  region  = "asia-south1"
+}
