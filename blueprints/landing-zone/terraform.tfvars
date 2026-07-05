@@ -2,7 +2,7 @@
 project_id = "your-gcp-project-id"
 clusterforge-dev = "clusterforge-dev-501409"
 clusterforge-prod = "clusterforge-prod-501409"
-clusterforge-sandbox = "clusterforge-sandbox-501409"
+sandbox_project_id" = "clusterforge-sandbox-501409"
 
 # GCP Region
 region = "us-central1"

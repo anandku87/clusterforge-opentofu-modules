@@ -71,34 +71,25 @@ variable "enable_metrics_server" {
   description = "Enable Metrics Server installation in this blueprint."
   type        = bool
   default     = true
+  }
+
+variable "network" {
+  description = "Existing VPC network name"
+  type        = string
 }
 
-variable "vpc_name" {
-  description = "VPC name used by the blueprint/network module"
+variable "subnetwork" {
+  description = "Existing subnet name"
   type        = string
-  default     = "clusterforge-vpc"
 }
 
-variable "subnet_name" {
-  description = "Subnet name used by the blueprint/network module"
+variable "pods_range_name" {
+  description = "Existing pods secondary range name"
   type        = string
-  default     = "clusterforge-subnet"
 }
 
-variable "subnet_cidr" {
-  description = "Subnet CIDR used by the blueprint/network module"
+variable "services_range_name" {
+  description = "Existing services secondary range name"
   type        = string
-  default     = "10.10.0.0/20"
 }
 
-variable "pods_cidr" {
-  description = "Pods secondary CIDR"
-  type        = string
-  default     = "10.20.0.0/16"
-}
-
-variable "services_cidr" {
-  description = "Services secondary CIDR"
-  type        = string
-  default     = "10.30.0.0/20"
-}

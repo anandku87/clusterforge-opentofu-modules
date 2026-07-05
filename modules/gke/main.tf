@@ -11,7 +11,6 @@ resource "google_container_cluster" "this" {
   subnetwork = var.subnetwork
 
   ip_allocation_policy {
-    use_ip_aliases                = true
     cluster_secondary_range_name  = var.pods_range_name
     services_secondary_range_name = var.services_range_name
   }
@@ -28,9 +27,7 @@ resource "google_container_cluster" "this" {
     channel = "REGULAR"
   }
 
-  shielded_nodes {
-    enabled = true
-  }
+  enable_shielded_nodes = true
 
   resource_labels = {
     platform   = "clusterforge"

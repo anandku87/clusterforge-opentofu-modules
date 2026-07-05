@@ -14,6 +14,16 @@ resource "google_compute_subnetwork" "shared_services" {
   network       = google_compute_network.shared_services.id
   ip_cidr_range = var.shared_subnet_cidr
 
+  secondary_ip_range {
+    range_name    = var.shared_pods_secondary_range_name
+    ip_cidr_range = var.shared_pods_secondary_range_cidr
+  }
+
+  secondary_ip_range {
+    range_name    = var.shared_services_secondary_range_name
+    ip_cidr_range = var.shared_services_secondary_range_cidr
+  }
+
   private_ip_google_access = true
 
   log_config {
@@ -38,6 +48,16 @@ resource "google_compute_subnetwork" "dev" {
   region        = var.region
   network       = google_compute_network.dev.id
   ip_cidr_range = var.dev_subnet_cidr
+
+  secondary_ip_range {
+    range_name    = var.dev_pods_secondary_range_name
+    ip_cidr_range = var.dev_pods_secondary_range_cidr
+  }
+
+  secondary_ip_range {
+    range_name    = var.dev_services_secondary_range_name
+    ip_cidr_range = var.dev_services_secondary_range_cidr
+  }
 
   private_ip_google_access = true
 
@@ -64,6 +84,16 @@ resource "google_compute_subnetwork" "prod" {
   network       = google_compute_network.prod.id
   ip_cidr_range = var.prod_subnet_cidr
 
+  secondary_ip_range {
+    range_name    = var.prod_pods_secondary_range_name
+    ip_cidr_range = var.prod_pods_secondary_range_cidr
+  }
+
+  secondary_ip_range {
+    range_name    = var.prod_services_secondary_range_name
+    ip_cidr_range = var.prod_services_secondary_range_cidr
+  }
+
   private_ip_google_access = true
 
   log_config {
@@ -88,6 +118,16 @@ resource "google_compute_subnetwork" "sandbox" {
   region        = var.region
   network       = google_compute_network.sandbox.id
   ip_cidr_range = var.sandbox_subnet_cidr
+
+  secondary_ip_range {
+    range_name    = var.sandbox_pods_secondary_range_name
+    ip_cidr_range = var.sandbox_pods_secondary_range_cidr
+  }
+
+  secondary_ip_range {
+    range_name    = var.sandbox_services_secondary_range_name
+    ip_cidr_range = var.sandbox_services_secondary_range_cidr
+  }
 
   private_ip_google_access = true
 

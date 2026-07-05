@@ -1,17 +1,3 @@
-module "network" {
-  source = "../../modules/network"
-
-  project_id = var.project_id
-  region     = var.region
-
-  vpc_name    = var.vpc_name
-  subnet_name = var.subnet_name
-
-  subnet_cidr   = var.subnet_cidr
-  pods_cidr     = var.pods_cidr
-  services_cidr = var.services_cidr
-}
-
 module "gke" {
   source = "../../modules/gke"
 
@@ -19,11 +5,11 @@ module "gke" {
   cluster_name = var.cluster_name
   region       = var.region
 
-  network    = module.network.vpc_name
-  subnetwork = module.network.subnet_name
+  network    = var.network
+  subnetwork = var.subnetwork
 
-  pods_range_name     = module.network.pods_range_name
-  services_range_name = module.network.services_range_name
+  pods_range_name     = var.pods_range_name
+  services_range_name = var.services_range_name
 
   machine_type = var.machine_type
 
@@ -36,27 +22,27 @@ module "gke" {
   deletion_protection = var.deletion_protection
 }
 
-module "security" {
-  source = "../../modules/security"
+#module "security" {
+#  source = "../../modules/security"
 
-  project_id                   = var.project_id
-  service_account_name         = "argocd"
-  service_account_display_name = "ArgoCD Service Account"
-  kubernetes_namespace         = "argocd"
-  kubernetes_service_account   = "argocd-server"
+#  project_id                   = var.project_id
+#  service_account_name         = "argocd"
+#  service_account_display_name = "ArgoCD Service Account"
+#  kubernetes_namespace         = "argocd"
+#  kubernetes_service_account   = "argocd-server"
 
-  roles = [
-    "roles/container.viewer",
-    "roles/artifactregistry.reader",
-    "roles/secretmanager.secretAccessor",
-  ]
-}
+#  roles = [
+#    "roles/container.viewer",
+#    "roles/artifactregistry.reader",
+#    "roles/secretmanager.secretAccessor",
+#  ]
+#}
 
-module "addons" {
-  source = "../../modules/addons"
+#module "addons" {
+#  source = "../../modules/addons"
 
-  enable_argocd         = var.enable_argocd
-  enable_istio          = var.enable_istio
-  enable_cert_manager   = var.enable_cert_manager
-  enable_metrics_server = var.enable_metrics_server
-}
+#  enable_argocd         = var.enable_argocd
+#  enable_istio          = var.enable_istio
+#  enable_cert_manager   = var.enable_cert_manager
+#  enable_metrics_server = var.enable_metrics_server
+#}

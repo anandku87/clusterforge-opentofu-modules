@@ -1,0 +1,628 @@
+[0m[1mmodule.shared_services.module.shared_services.google_storage_bucket.state_backend: Refreshing state... [id=clusterforge-state][0m
+
+OpenTofu used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [31m-[0m destroy[0m
+
+OpenTofu will perform the following actions:
+
+[1m  # module.shared_services.module.shared_services.google_storage_bucket.state_backend[0m will be [1m[31mdestroyed[0m
+  # (because google_storage_bucket.state_backend is not in configuration)
+[0m  [31m-[0m[0m resource "google_storage_bucket" "state_backend" {
+      [31m-[0m[0m default_event_based_hold    = false [90m-> null[0m[0m
+      [31m-[0m[0m effective_labels            = {
+          [31m-[0m[0m "goog-terraform-provisioned" = "true"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m enable_object_retention     = false [90m-> null[0m[0m
+      [31m-[0m[0m force_destroy               = false [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "clusterforge-state" [90m-> null[0m[0m
+      [31m-[0m[0m labels                      = {} [90m-> null[0m[0m
+      [31m-[0m[0m location                    = "ASIA-SOUTH1" [90m-> null[0m[0m
+      [31m-[0m[0m name                        = "clusterforge-state" [90m-> null[0m[0m
+      [31m-[0m[0m project                     = "clusterforge-shared" [90m-> null[0m[0m
+      [31m-[0m[0m project_number              = 1088323776056 [90m-> null[0m[0m
+      [31m-[0m[0m public_access_prevention    = "inherited" [90m-> null[0m[0m
+      [31m-[0m[0m requester_pays              = false [90m-> null[0m[0m
+      [31m-[0m[0m self_link                   = "https://www.googleapis.com/storage/v1/b/clusterforge-state" [90m-> null[0m[0m
+      [31m-[0m[0m storage_class               = "STANDARD" [90m-> null[0m[0m
+      [31m-[0m[0m terraform_labels            = {
+          [31m-[0m[0m "goog-terraform-provisioned" = "true"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m time_created                = "2026-06-15T03:09:05.753Z" [90m-> null[0m[0m
+      [31m-[0m[0m uniform_bucket_level_access = true [90m-> null[0m[0m
+      [31m-[0m[0m updated                     = "2026-06-15T03:09:05.753Z" [90m-> null[0m[0m
+      [31m-[0m[0m url                         = "gs://clusterforge-state" [90m-> null[0m[0m
+
+      [31m-[0m[0m hierarchical_namespace {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m soft_delete_policy {
+          [31m-[0m[0m effective_time             = "2026-06-15T03:09:05.753Z" [90m-> null[0m[0m
+          [31m-[0m[0m retention_duration_seconds = 604800 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m versioning {
+          [31m-[0m[0m enabled = true [90m-> null[0m[0m
+        }
+    }
+
+[1m  # module.standard.module.addons.helm_release.argocd[0][0m will be created
+[0m  [32m+[0m[0m resource "helm_release" "argocd" {
+      [32m+[0m[0m atomic                     = false
+      [32m+[0m[0m chart                      = "argo-cd"
+      [32m+[0m[0m cleanup_on_fail            = false
+      [32m+[0m[0m create_namespace           = false
+      [32m+[0m[0m dependency_update          = false
+      [32m+[0m[0m disable_crd_hooks          = false
+      [32m+[0m[0m disable_openapi_validation = false
+      [32m+[0m[0m disable_webhooks           = false
+      [32m+[0m[0m force_update               = false
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m lint                       = false
+      [32m+[0m[0m manifest                   = (known after apply)
+      [32m+[0m[0m max_history                = 0
+      [32m+[0m[0m metadata                   = (known after apply)
+      [32m+[0m[0m name                       = "argocd"
+      [32m+[0m[0m namespace                  = "argocd"
+      [32m+[0m[0m pass_credentials           = false
+      [32m+[0m[0m recreate_pods              = false
+      [32m+[0m[0m render_subchart_notes      = true
+      [32m+[0m[0m replace                    = false
+      [32m+[0m[0m repository                 = "https://argoproj.github.io/argo-helm"
+      [32m+[0m[0m reset_values               = false
+      [32m+[0m[0m reuse_values               = false
+      [32m+[0m[0m skip_crds                  = false
+      [32m+[0m[0m status                     = "deployed"
+      [32m+[0m[0m timeout                    = 300
+      [32m+[0m[0m verify                     = false
+      [32m+[0m[0m version                    = "9.5.9"
+      [32m+[0m[0m wait                       = true
+      [32m+[0m[0m wait_for_jobs              = false
+    }
+
+[1m  # module.standard.module.addons.helm_release.cert_manager[0][0m will be created
+[0m  [32m+[0m[0m resource "helm_release" "cert_manager" {
+      [32m+[0m[0m atomic                     = false
+      [32m+[0m[0m chart                      = "cert-manager"
+      [32m+[0m[0m cleanup_on_fail            = false
+      [32m+[0m[0m create_namespace           = false
+      [32m+[0m[0m dependency_update          = false
+      [32m+[0m[0m disable_crd_hooks          = false
+      [32m+[0m[0m disable_openapi_validation = false
+      [32m+[0m[0m disable_webhooks           = false
+      [32m+[0m[0m force_update               = false
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m lint                       = false
+      [32m+[0m[0m manifest                   = (known after apply)
+      [32m+[0m[0m max_history                = 0
+      [32m+[0m[0m metadata                   = (known after apply)
+      [32m+[0m[0m name                       = "cert-manager"
+      [32m+[0m[0m namespace                  = "cert-manager"
+      [32m+[0m[0m pass_credentials           = false
+      [32m+[0m[0m recreate_pods              = false
+      [32m+[0m[0m render_subchart_notes      = true
+      [32m+[0m[0m replace                    = false
+      [32m+[0m[0m repository                 = "https://charts.jetstack.io"
+      [32m+[0m[0m reset_values               = false
+      [32m+[0m[0m reuse_values               = false
+      [32m+[0m[0m skip_crds                  = false
+      [32m+[0m[0m status                     = "deployed"
+      [32m+[0m[0m timeout                    = 300
+      [32m+[0m[0m verify                     = false
+      [32m+[0m[0m version                    = "v1.9.2"
+      [32m+[0m[0m wait                       = true
+      [32m+[0m[0m wait_for_jobs              = false
+
+      [32m+[0m[0m set {
+          [32m+[0m[0m name  = "installCRDs"
+          [32m+[0m[0m value = "true"
+        }
+    }
+
+[1m  # module.standard.module.addons.helm_release.istio_base[0][0m will be created
+[0m  [32m+[0m[0m resource "helm_release" "istio_base" {
+      [32m+[0m[0m atomic                     = false
+      [32m+[0m[0m chart                      = "base"
+      [32m+[0m[0m cleanup_on_fail            = false
+      [32m+[0m[0m create_namespace           = false
+      [32m+[0m[0m dependency_update          = false
+      [32m+[0m[0m disable_crd_hooks          = false
+      [32m+[0m[0m disable_openapi_validation = false
+      [32m+[0m[0m disable_webhooks           = false
+      [32m+[0m[0m force_update               = false
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m lint                       = false
+      [32m+[0m[0m manifest                   = (known after apply)
+      [32m+[0m[0m max_history                = 0
+      [32m+[0m[0m metadata                   = (known after apply)
+      [32m+[0m[0m name                       = "istio-base"
+      [32m+[0m[0m namespace                  = "istio-system"
+      [32m+[0m[0m pass_credentials           = false
+      [32m+[0m[0m recreate_pods              = false
+      [32m+[0m[0m render_subchart_notes      = true
+      [32m+[0m[0m replace                    = false
+      [32m+[0m[0m repository                 = "https://istio-release.storage.googleapis.com/charts"
+      [32m+[0m[0m reset_values               = false
+      [32m+[0m[0m reuse_values               = false
+      [32m+[0m[0m skip_crds                  = false
+      [32m+[0m[0m status                     = "deployed"
+      [32m+[0m[0m timeout                    = 300
+      [32m+[0m[0m verify                     = false
+      [32m+[0m[0m version                    = "1.30.1"
+      [32m+[0m[0m wait                       = true
+      [32m+[0m[0m wait_for_jobs              = false
+    }
+
+[1m  # module.standard.module.addons.helm_release.istio_gateway[0][0m will be created
+[0m  [32m+[0m[0m resource "helm_release" "istio_gateway" {
+      [32m+[0m[0m atomic                     = false
+      [32m+[0m[0m chart                      = "gateway"
+      [32m+[0m[0m cleanup_on_fail            = false
+      [32m+[0m[0m create_namespace           = false
+      [32m+[0m[0m dependency_update          = false
+      [32m+[0m[0m disable_crd_hooks          = false
+      [32m+[0m[0m disable_openapi_validation = false
+      [32m+[0m[0m disable_webhooks           = false
+      [32m+[0m[0m force_update               = false
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m lint                       = false
+      [32m+[0m[0m manifest                   = (known after apply)
+      [32m+[0m[0m max_history                = 0
+      [32m+[0m[0m metadata                   = (known after apply)
+      [32m+[0m[0m name                       = "istio-gateway"
+      [32m+[0m[0m namespace                  = "istio-system"
+      [32m+[0m[0m pass_credentials           = false
+      [32m+[0m[0m recreate_pods              = false
+      [32m+[0m[0m render_subchart_notes      = true
+      [32m+[0m[0m replace                    = false
+      [32m+[0m[0m repository                 = "https://istio-release.storage.googleapis.com/charts"
+      [32m+[0m[0m reset_values               = false
+      [32m+[0m[0m reuse_values               = false
+      [32m+[0m[0m skip_crds                  = false
+      [32m+[0m[0m status                     = "deployed"
+      [32m+[0m[0m timeout                    = 300
+      [32m+[0m[0m verify                     = false
+      [32m+[0m[0m version                    = "1.30.1"
+      [32m+[0m[0m wait                       = true
+      [32m+[0m[0m wait_for_jobs              = false
+    }
+
+[1m  # module.standard.module.addons.helm_release.istiod[0][0m will be created
+[0m  [32m+[0m[0m resource "helm_release" "istiod" {
+      [32m+[0m[0m atomic                     = false
+      [32m+[0m[0m chart                      = "istiod"
+      [32m+[0m[0m cleanup_on_fail            = false
+      [32m+[0m[0m create_namespace           = false
+      [32m+[0m[0m dependency_update          = false
+      [32m+[0m[0m disable_crd_hooks          = false
+      [32m+[0m[0m disable_openapi_validation = false
+      [32m+[0m[0m disable_webhooks           = false
+      [32m+[0m[0m force_update               = false
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m lint                       = false
+      [32m+[0m[0m manifest                   = (known after apply)
+      [32m+[0m[0m max_history                = 0
+      [32m+[0m[0m metadata                   = (known after apply)
+      [32m+[0m[0m name                       = "istiod"
+      [32m+[0m[0m namespace                  = "istio-system"
+      [32m+[0m[0m pass_credentials           = false
+      [32m+[0m[0m recreate_pods              = false
+      [32m+[0m[0m render_subchart_notes      = true
+      [32m+[0m[0m replace                    = false
+      [32m+[0m[0m repository                 = "https://istio-release.storage.googleapis.com/charts"
+      [32m+[0m[0m reset_values               = false
+      [32m+[0m[0m reuse_values               = false
+      [32m+[0m[0m skip_crds                  = false
+      [32m+[0m[0m status                     = "deployed"
+      [32m+[0m[0m timeout                    = 300
+      [32m+[0m[0m verify                     = false
+      [32m+[0m[0m version                    = "1.30.1"
+      [32m+[0m[0m wait                       = true
+      [32m+[0m[0m wait_for_jobs              = false
+    }
+
+[1m  # module.standard.module.addons.helm_release.metrics_server[0][0m will be created
+[0m  [32m+[0m[0m resource "helm_release" "metrics_server" {
+      [32m+[0m[0m atomic                     = false
+      [32m+[0m[0m chart                      = "metrics-server"
+      [32m+[0m[0m cleanup_on_fail            = false
+      [32m+[0m[0m create_namespace           = false
+      [32m+[0m[0m dependency_update          = false
+      [32m+[0m[0m disable_crd_hooks          = false
+      [32m+[0m[0m disable_openapi_validation = false
+      [32m+[0m[0m disable_webhooks           = false
+      [32m+[0m[0m force_update               = false
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m lint                       = false
+      [32m+[0m[0m manifest                   = (known after apply)
+      [32m+[0m[0m max_history                = 0
+      [32m+[0m[0m metadata                   = (known after apply)
+      [32m+[0m[0m name                       = "metrics-server"
+      [32m+[0m[0m namespace                  = "kube-system"
+      [32m+[0m[0m pass_credentials           = false
+      [32m+[0m[0m recreate_pods              = false
+      [32m+[0m[0m render_subchart_notes      = true
+      [32m+[0m[0m replace                    = false
+      [32m+[0m[0m repository                 = "https://kubernetes-sigs.github.io/metrics-server/"
+      [32m+[0m[0m reset_values               = false
+      [32m+[0m[0m reuse_values               = false
+      [32m+[0m[0m skip_crds                  = false
+      [32m+[0m[0m status                     = "deployed"
+      [32m+[0m[0m timeout                    = 300
+      [32m+[0m[0m verify                     = false
+      [32m+[0m[0m version                    = "3.9.0"
+      [32m+[0m[0m wait                       = true
+      [32m+[0m[0m wait_for_jobs              = false
+    }
+
+[1m  # module.standard.module.addons.kubernetes_namespace.argocd[0][0m will be created
+[0m  [32m+[0m[0m resource "kubernetes_namespace" "argocd" {
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m wait_for_default_service_account = false
+
+      [32m+[0m[0m metadata {
+          [32m+[0m[0m generation       = (known after apply)
+          [32m+[0m[0m labels           = {
+              [32m+[0m[0m "app" = "argocd"
+            }
+          [32m+[0m[0m name             = "argocd"
+          [32m+[0m[0m resource_version = (known after apply)
+          [32m+[0m[0m uid              = (known after apply)
+        }
+    }
+
+[1m  # module.standard.module.addons.kubernetes_namespace.cert_manager[0][0m will be created
+[0m  [32m+[0m[0m resource "kubernetes_namespace" "cert_manager" {
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m wait_for_default_service_account = false
+
+      [32m+[0m[0m metadata {
+          [32m+[0m[0m generation       = (known after apply)
+          [32m+[0m[0m labels           = {
+              [32m+[0m[0m "app" = "cert-manager"
+            }
+          [32m+[0m[0m name             = "cert-manager"
+          [32m+[0m[0m resource_version = (known after apply)
+          [32m+[0m[0m uid              = (known after apply)
+        }
+    }
+
+[1m  # module.standard.module.addons.kubernetes_namespace.istio[0][0m will be created
+[0m  [32m+[0m[0m resource "kubernetes_namespace" "istio" {
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m wait_for_default_service_account = false
+
+      [32m+[0m[0m metadata {
+          [32m+[0m[0m generation       = (known after apply)
+          [32m+[0m[0m labels           = {
+              [32m+[0m[0m "app" = "istio"
+            }
+          [32m+[0m[0m name             = "istio-system"
+          [32m+[0m[0m resource_version = (known after apply)
+          [32m+[0m[0m uid              = (known after apply)
+        }
+    }
+
+[1m  # module.standard.module.gke.google_container_cluster.this[0m will be created
+[0m  [32m+[0m[0m resource "google_container_cluster" "this" {
+      [32m+[0m[0m cluster_ipv4_cidr                        = (known after apply)
+      [32m+[0m[0m datapath_provider                        = (known after apply)
+      [32m+[0m[0m default_max_pods_per_node                = (known after apply)
+      [32m+[0m[0m deletion_protection                      = false
+      [32m+[0m[0m disable_l4_lb_firewall_reconciliation    = false
+      [32m+[0m[0m effective_labels                         = {
+          [32m+[0m[0m "goog-terraform-provisioned" = "true"
+          [32m+[0m[0m "managed_by"                 = "opentofu"
+          [32m+[0m[0m "platform"                   = "clusterforge"
+        }
+      [32m+[0m[0m enable_cilium_clusterwide_network_policy = false
+      [32m+[0m[0m enable_fqdn_network_policy               = false
+      [32m+[0m[0m enable_intranode_visibility              = (known after apply)
+      [32m+[0m[0m enable_kubernetes_alpha                  = false
+      [32m+[0m[0m enable_l4_ilb_subsetting                 = false
+      [32m+[0m[0m enable_legacy_abac                       = false
+      [32m+[0m[0m enable_multi_networking                  = false
+      [32m+[0m[0m enable_shielded_nodes                    = true
+      [32m+[0m[0m endpoint                                 = (known after apply)
+      [32m+[0m[0m id                                       = (known after apply)
+      [32m+[0m[0m initial_node_count                       = 1
+      [32m+[0m[0m label_fingerprint                        = (known after apply)
+      [32m+[0m[0m location                                 = "asia-south1"
+      [32m+[0m[0m logging_service                          = "logging.googleapis.com/kubernetes"
+      [32m+[0m[0m master_version                           = (known after apply)
+      [32m+[0m[0m monitoring_service                       = "monitoring.googleapis.com/kubernetes"
+      [32m+[0m[0m name                                     = "clusterforge-sandbox"
+      [32m+[0m[0m network                                  = "clusterforge-vpc"
+      [32m+[0m[0m networking_mode                          = (known after apply)
+      [32m+[0m[0m node_locations                           = (known after apply)
+      [32m+[0m[0m node_version                             = (known after apply)
+      [32m+[0m[0m operation                                = (known after apply)
+      [32m+[0m[0m private_ipv6_google_access               = (known after apply)
+      [32m+[0m[0m project                                  = "clusterforge-sandbox"
+      [32m+[0m[0m remove_default_node_pool                 = true
+      [32m+[0m[0m resource_labels                          = {
+          [32m+[0m[0m "managed_by" = "opentofu"
+          [32m+[0m[0m "platform"   = "clusterforge"
+        }
+      [32m+[0m[0m self_link                                = (known after apply)
+      [32m+[0m[0m services_ipv4_cidr                       = (known after apply)
+      [32m+[0m[0m subnetwork                               = "clusterforge-subnet"
+      [32m+[0m[0m terraform_labels                         = {
+          [32m+[0m[0m "goog-terraform-provisioned" = "true"
+          [32m+[0m[0m "managed_by"                 = "opentofu"
+          [32m+[0m[0m "platform"                   = "clusterforge"
+        }
+      [32m+[0m[0m tpu_ipv4_cidr_block                      = (known after apply)
+
+      [32m+[0m[0m addons_config (known after apply)
+
+      [32m+[0m[0m anonymous_authentication_config (known after apply)
+
+      [32m+[0m[0m authenticator_groups_config (known after apply)
+
+      [32m+[0m[0m cluster_autoscaling {
+          [32m+[0m[0m auto_provisioning_locations = (known after apply)
+          [32m+[0m[0m autoscaling_profile         = "BALANCED"
+          [32m+[0m[0m enabled                     = false
+
+          [32m+[0m[0m auto_provisioning_defaults (known after apply)
+        }
+
+      [32m+[0m[0m confidential_nodes (known after apply)
+
+      [32m+[0m[0m control_plane_endpoints_config (known after apply)
+
+      [32m+[0m[0m cost_management_config (known after apply)
+
+      [32m+[0m[0m database_encryption (known after apply)
+
+      [32m+[0m[0m default_snat_status (known after apply)
+
+      [32m+[0m[0m enterprise_config (known after apply)
+
+      [32m+[0m[0m gateway_api_config (known after apply)
+
+      [32m+[0m[0m gke_auto_upgrade_config (known after apply)
+
+      [32m+[0m[0m identity_service_config (known after apply)
+
+      [32m+[0m[0m ip_allocation_policy {
+          [32m+[0m[0m cluster_ipv4_cidr_block       = (known after apply)
+          [32m+[0m[0m cluster_secondary_range_name  = "pods"
+          [32m+[0m[0m services_ipv4_cidr_block      = (known after apply)
+          [32m+[0m[0m services_secondary_range_name = "services"
+          [32m+[0m[0m stack_type                    = "IPV4"
+
+          [32m+[0m[0m pod_cidr_overprovision_config (known after apply)
+        }
+
+      [32m+[0m[0m logging_config (known after apply)
+
+      [32m+[0m[0m master_auth (known after apply)
+
+      [32m+[0m[0m master_authorized_networks_config (known after apply)
+
+      [32m+[0m[0m mesh_certificates (known after apply)
+
+      [32m+[0m[0m monitoring_config (known after apply)
+
+      [32m+[0m[0m network_policy {
+          [32m+[0m[0m enabled = true
+        }
+
+      [32m+[0m[0m node_config (known after apply)
+
+      [32m+[0m[0m node_pool (known after apply)
+
+      [32m+[0m[0m node_pool_auto_config (known after apply)
+
+      [32m+[0m[0m node_pool_defaults (known after apply)
+
+      [32m+[0m[0m notification_config (known after apply)
+
+      [32m+[0m[0m pod_autoscaling (known after apply)
+
+      [32m+[0m[0m rbac_binding_config (known after apply)
+
+      [32m+[0m[0m release_channel {
+          [32m+[0m[0m channel = "REGULAR"
+        }
+
+      [32m+[0m[0m security_posture_config (known after apply)
+
+      [32m+[0m[0m service_external_ips_config (known after apply)
+
+      [32m+[0m[0m vertical_pod_autoscaling (known after apply)
+
+      [32m+[0m[0m workload_identity_config {
+          [32m+[0m[0m workload_pool = "clusterforge-sandbox.svc.id.goog"
+        }
+    }
+
+[1m  # module.standard.module.gke.google_container_node_pool.primary[0m will be created
+[0m  [32m+[0m[0m resource "google_container_node_pool" "primary" {
+      [32m+[0m[0m cluster                     = "clusterforge-sandbox"
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m initial_node_count          = (known after apply)
+      [32m+[0m[0m instance_group_urls         = (known after apply)
+      [32m+[0m[0m location                    = "asia-south1"
+      [32m+[0m[0m managed_instance_group_urls = (known after apply)
+      [32m+[0m[0m max_pods_per_node           = (known after apply)
+      [32m+[0m[0m name                        = "clusterforge-sandbox-pool"
+      [32m+[0m[0m name_prefix                 = (known after apply)
+      [32m+[0m[0m node_count                  = 1
+      [32m+[0m[0m node_locations              = (known after apply)
+      [32m+[0m[0m operation                   = (known after apply)
+      [32m+[0m[0m project                     = "clusterforge-sandbox"
+      [32m+[0m[0m version                     = (known after apply)
+
+      [32m+[0m[0m autoscaling {
+          [32m+[0m[0m location_policy = (known after apply)
+          [32m+[0m[0m max_node_count  = 2
+          [32m+[0m[0m min_node_count  = 1
+        }
+
+      [32m+[0m[0m management {
+          [32m+[0m[0m auto_repair  = true
+          [32m+[0m[0m auto_upgrade = true
+        }
+
+      [32m+[0m[0m network_config (known after apply)
+
+      [32m+[0m[0m node_config {
+          [32m+[0m[0m disk_size_gb     = 100
+          [32m+[0m[0m disk_type        = "pd-standard"
+          [32m+[0m[0m effective_taints = (known after apply)
+          [32m+[0m[0m image_type       = (known after apply)
+          [32m+[0m[0m labels           = {
+              [32m+[0m[0m "managed_by" = "opentofu"
+              [32m+[0m[0m "platform"   = "clusterforge"
+            }
+          [32m+[0m[0m local_ssd_count  = (known after apply)
+          [32m+[0m[0m logging_variant  = (known after apply)
+          [32m+[0m[0m machine_type     = "e2-medium"
+          [32m+[0m[0m metadata         = (known after apply)
+          [32m+[0m[0m min_cpu_platform = (known after apply)
+          [32m+[0m[0m oauth_scopes     = [
+              [32m+[0m[0m "https://www.googleapis.com/auth/cloud-platform",
+            ]
+          [32m+[0m[0m preemptible      = false
+          [32m+[0m[0m service_account  = (known after apply)
+          [32m+[0m[0m spot             = false
+
+          [32m+[0m[0m boot_disk (known after apply)
+
+          [32m+[0m[0m confidential_nodes (known after apply)
+
+          [32m+[0m[0m gcfs_config (known after apply)
+
+          [32m+[0m[0m guest_accelerator (known after apply)
+
+          [32m+[0m[0m kubelet_config (known after apply)
+
+          [32m+[0m[0m linux_node_config (known after apply)
+
+          [32m+[0m[0m shielded_instance_config {
+              [32m+[0m[0m enable_integrity_monitoring = true
+              [32m+[0m[0m enable_secure_boot          = true
+            }
+
+          [32m+[0m[0m windows_node_config (known after apply)
+
+          [32m+[0m[0m workload_metadata_config (known after apply)
+        }
+
+      [32m+[0m[0m upgrade_settings (known after apply)
+    }
+
+[1m  # module.standard.module.network[0].google_compute_network.vpc[0m will be created
+[0m  [32m+[0m[0m resource "google_compute_network" "vpc" {
+      [32m+[0m[0m auto_create_subnetworks                   = false
+      [32m+[0m[0m bgp_always_compare_med                    = (known after apply)
+      [32m+[0m[0m bgp_best_path_selection_mode              = (known after apply)
+      [32m+[0m[0m bgp_inter_region_cost                     = (known after apply)
+      [32m+[0m[0m delete_default_routes_on_create           = false
+      [32m+[0m[0m gateway_ipv4                              = (known after apply)
+      [32m+[0m[0m id                                        = (known after apply)
+      [32m+[0m[0m internal_ipv6_range                       = (known after apply)
+      [32m+[0m[0m mtu                                       = (known after apply)
+      [32m+[0m[0m name                                      = "clusterforge-vpc"
+      [32m+[0m[0m network_firewall_policy_enforcement_order = "AFTER_CLASSIC_FIREWALL"
+      [32m+[0m[0m network_id                                = (known after apply)
+      [32m+[0m[0m numeric_id                                = (known after apply)
+      [32m+[0m[0m project                                   = "clusterforge-sandbox"
+      [32m+[0m[0m routing_mode                              = (known after apply)
+      [32m+[0m[0m self_link                                 = (known after apply)
+    }
+
+[1m  # module.standard.module.network[0].google_compute_subnetwork.gke_subnet[0m will be created
+[0m  [32m+[0m[0m resource "google_compute_subnetwork" "gke_subnet" {
+      [32m+[0m[0m creation_timestamp         = (known after apply)
+      [32m+[0m[0m enable_flow_logs           = (known after apply)
+      [32m+[0m[0m external_ipv6_prefix       = (known after apply)
+      [32m+[0m[0m fingerprint                = (known after apply)
+      [32m+[0m[0m gateway_address            = (known after apply)
+      [32m+[0m[0m id                         = (known after apply)
+      [32m+[0m[0m internal_ipv6_prefix       = (known after apply)
+      [32m+[0m[0m ip_cidr_range              = "10.10.0.0/20"
+      [32m+[0m[0m ipv6_cidr_range            = (known after apply)
+      [32m+[0m[0m ipv6_gce_endpoint          = (known after apply)
+      [32m+[0m[0m name                       = "clusterforge-subnet"
+      [32m+[0m[0m network                    = (known after apply)
+      [32m+[0m[0m private_ip_google_access   = (known after apply)
+      [32m+[0m[0m private_ipv6_google_access = (known after apply)
+      [32m+[0m[0m project                    = "clusterforge-sandbox"
+      [32m+[0m[0m purpose                    = (known after apply)
+      [32m+[0m[0m region                     = "asia-south1"
+      [32m+[0m[0m self_link                  = (known after apply)
+      [32m+[0m[0m stack_type                 = (known after apply)
+      [32m+[0m[0m state                      = (known after apply)
+      [32m+[0m[0m subnetwork_id              = (known after apply)
+
+      [32m+[0m[0m secondary_ip_range {
+          [32m+[0m[0m ip_cidr_range = "10.20.0.0/16"
+          [32m+[0m[0m range_name    = "pods"
+        }
+      [32m+[0m[0m secondary_ip_range {
+          [32m+[0m[0m ip_cidr_range = "10.30.0.0/20"
+          [32m+[0m[0m range_name    = "services"
+        }
+    }
+
+[1m  # module.standard.module.security.google_project_iam_member.sa_roles["roles/artifactregistry.reader"][0m will be created
+[0m  [32m+[0m[0m resource "google_project_iam_member" "sa_roles" {
+      [32m+[0m[0m etag    = (known after apply)
+      [32m+[0m[0m id      = (known after apply)
+      [32m+[0m[0m member  = "serviceAccount:argocd@clusterforge-sandbox.iam.gserviceaccount.com"
+      [32m+[0m[0m project = "clusterforge-sandbox"
+      [32m+[0m[0m role    = "roles/artifactregistry.reader"
+    }
+
+[1m  # module.standard.module.security.google_project_iam_member.sa_roles["roles/container.viewer"][0m will be created
+[0m  [32m+[0m[0m resource "google_project_iam_member" "sa_roles" {
+      [32m+[0m[0m etag    = (known after apply)
+      [32m+[0m[0m id      = (known after apply)
+      [32m+[0m[0m member  = "serviceAccount:argocd@clusterforge-sandbox.iam.gserviceaccount.com"
+      [32m+[0m[0m project = "clusterforge-sandbox"
+      [32m+[0m[0m role    = "roles/container.viewer"
+    }
+
+[1m  # module.standard.module.security.google_project_iam_member.sa_roles["roles/secretmanager.secretAccessor"][0m will be created
+[0m  [32m+[0m[0m resource "google_project_iam_member" "sa_roles" {
+      [32m+[0m[0m etag    = (known after apply)
+      [32m+[0m[0m id      = (known after apply)
+      [32m+[0m[0m member  = "serviceAccount:argocd@clusterforge-sandbox.iam.gserviceaccount.com"
+      [32m+[0m[0m project = "clusterforge-sandbox"
+      [32m+[0m[0m role    = "roles/secretmanager.secretAccessor"
+    }
+
+[1m  # module.standard.module.security.google_service_account.gsa[0m will be created
+[0m  [32m+[0m[0m resource "google_service_account" "gsa" {
+      [32m+[0m[0m account_id   = "argocd"
+      [32m+[0m[0m disabled     = false
+      [32m+[0m[0m display_name = "ArgoCD Service Account"
+      [32m+[0m[0m email        = "argocd@clusterforge-sandbox.iam.gserviceaccount.com"
+      [32m+[0m[0m id           = (known after apply)
+      [32m+[0m[0m member       = "serviceAccount:argocd@clusterforge-sandbox.iam.gserviceaccount.com"
+      [32m+[0m[0m name         = (known after apply)
+      [32m+[0m[0m project      = "clusterforge-sandbox"
+      [32m+[0m[0m unique_id    = (known after apply)
+    }
+
+[1m  # module.standard.module.security.google_service_account_iam_member.workload_identity[0m will be created
+[0m  [32m+[0m[0m resource "google_service_account_iam_member" "workload_identity" {
+      [32m+[0m[0m etag               = (known after apply)
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m member             = "serviceAccount:clusterforge-sandbox.svc.id.goog[argocd/argocd-server]"
+      [32m+[0m[0m role               = "roles/iam.workloadIdentityUser"
+      [32m+[0m[0m service_account_id = (known after apply)
+    }
+
+[1mPlan:[0m 18 to add, 0 to change, 1 to destroy.
+[0m[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so OpenTofu can't
+guarantee to take exactly these actions if you run "tofu apply" now.

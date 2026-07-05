@@ -4,12 +4,12 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 5.0"
+      version = "~> 6.0"
     }
   }
 }
 
 provider "google" {
-  project = "clusterforge-shared"
-  region  = "asia-south1"
+  project = var.shared_project_id
+  region  = var.region
 }

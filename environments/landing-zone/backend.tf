@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
     bucket = "clusterforge-state"
-    prefix = "sandbox"
+    prefix = "landing-zone"
   }
 }

@@ -1,5 +1,5 @@
-project_id   = "clusterforge-dev"
-cluster_name = "clusterforge-dev"
+project_id   = "clusterforge-dev-501409"
+cluster_name = "demo-test-k8s"
 region       = "asia-south1"
 
 machine_type = "e2-standard-4"

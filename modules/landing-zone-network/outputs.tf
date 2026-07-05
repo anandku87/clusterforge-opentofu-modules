@@ -19,6 +19,26 @@ output "shared_subnet_self_link" {
   value       = google_compute_subnetwork.shared_services.self_link
 }
 
+output "shared_pods_secondary_range_name" {
+  description = "Pods secondary range name for shared services"
+  value       = var.shared_pods_secondary_range_name
+}
+
+output "shared_services_secondary_range_name" {
+  description = "Services secondary range name for shared services"
+  value       = var.shared_services_secondary_range_name
+}
+
+output "shared_network_name" {
+  description = "Shared VPC name"
+  value       = google_compute_network.shared_services.name
+}
+
+output "shared_subnet_name" {
+  description = "Shared subnet name"
+  value       = google_compute_subnetwork.shared_services.name
+}
+
 # Dev VPC Outputs
 output "dev_vpc_id" {
   description = "Resource ID of the development spoke VPC"
@@ -38,6 +58,26 @@ output "dev_subnet_id" {
 output "dev_subnet_self_link" {
   description = "Self link of the development subnet"
   value       = google_compute_subnetwork.dev.self_link
+}
+
+output "dev_pods_secondary_range_name" {
+  description = "Pods secondary range name for dev"
+  value       = var.dev_pods_secondary_range_name
+}
+
+output "dev_services_secondary_range_name" {
+  description = "Services secondary range name for dev"
+  value       = var.dev_services_secondary_range_name
+}
+
+output "dev_network_name" {
+  description = "Development VPC name"
+  value       = google_compute_network.dev.name
+}
+
+output "dev_subnet_name" {
+  description = "Development subnet name"
+  value       = google_compute_subnetwork.dev.name
 }
 
 # Prod VPC Outputs
@@ -61,6 +101,26 @@ output "prod_subnet_self_link" {
   value       = google_compute_subnetwork.prod.self_link
 }
 
+output "prod_pods_secondary_range_name" {
+  description = "Pods secondary range name for prod"
+  value       = var.prod_pods_secondary_range_name
+}
+
+output "prod_services_secondary_range_name" {
+  description = "Services secondary range name for prod"
+  value       = var.prod_services_secondary_range_name
+}
+
+output "prod_network_name" {
+  description = "Production VPC name"
+  value       = google_compute_network.prod.name
+}
+
+output "prod_subnet_name" {
+  description = "Production subnet name"
+  value       = google_compute_subnetwork.prod.name
+}
+
 # Sandbox VPC Outputs
 output "sandbox_vpc_id" {
   description = "Resource ID of the sandbox spoke VPC"
@@ -80,6 +140,26 @@ output "sandbox_subnet_id" {
 output "sandbox_subnet_self_link" {
   description = "Self link of the sandbox subnet"
   value       = google_compute_subnetwork.sandbox.self_link
+}
+
+output "sandbox_pods_secondary_range_name" {
+  description = "Pods secondary range name for sandbox"
+  value       = var.sandbox_pods_secondary_range_name
+}
+
+output "sandbox_services_secondary_range_name" {
+  description = "Services secondary range name for sandbox"
+  value       = var.sandbox_services_secondary_range_name
+}
+
+output "sandbox_network_name" {
+  description = "Sandbox VPC name"
+  value       = google_compute_network.sandbox.name
+}
+
+output "sandbox_subnet_name" {
+  description = "Sandbox subnet name"
+  value       = google_compute_subnetwork.sandbox.name
 }
 
 # Peering Outputs
